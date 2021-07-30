@@ -1,0 +1,38 @@
+\chapter{Giới thiệu}\label{chap:gioithieu}
+
+\section{Tổng quan}\label{sec:tongquan}
+
+Học sâu - một phần nhỏ của học máy, đã và đang len lỏi vào trong đời sống hiện đại của chúng ta ngày nay.
+Rất nhiều ứng dụng giúp cải thiện cuộc sống con người đã được ra đời nhờ vào những nghiên cứu về học sâu.
+Đơn cử như chúng ta sử dụng Google Dịch để chuyển đổi một đoạn văn bản từ một ngôn ngữ chúng ta mong muốn sang một ngôn ngữ khác.
+Google Maps giúp chúng ta tìm được đường đi, dẫn chúng ta đi những đường tối ưu.
+Google Mail gợi ý cho chúng ta những đoạn văn mà chúng ta nên ghi theo, phân loại thư rác.
+Nhiều công ty công nghệ như Facebook cũng sử dụng học sâu để đưa ra những gợi ý quảng cáo phù hợp theo đúng nhưng nhu cầu chúng ta quan tâm thông qua các hành vi được ghi lại.
+Ô-tô tự lái của Tesla đã khiến cho nhiều người kinh ngạc khi việc vừa ngủ vừa lái xe không còn là một điều quá đỗi điên khùng như trong phim viễn tưởng nữa.
+Đó là ở những nước tiên tiến, học sâu ở Việt Nam ta cũng không hề thua kém khi rào cản kiến thức đã bị xoá nhoà trong thời đại thế giới phẳng bây giờ.
+Nhận diện khuôn mặt trong việc điểm danh, chấm công.
+Gợi ý sản phẩm mua hàng cho những khách hàng dựa vào thông tin khách hàng cung cấp.
+Những ứng dụng gần gũi thúc đẩy công nghiệp hoá - hiện đại hoá đang được áp dụng rất nhiều dựa học học máy cũng như học sâu.
+\vspace{5pt}
+
+Sức mạnh của học sâu có thể nói chủ yếu là việc kết hợp nhiều tầng ẩn, mỗi tầng ẩn gồm nhiều đơn vị ẩn.
+Sau quá trình tối ưu sử dụng lan truyền ngược, ta có được một hệ thống mạng nơ-ron sâu giúp ta xử lý được những bài toán khó khăn.
+Một trong những thành phần không thể thiếu trong những mạng học sâu này là các hàm kích hoạt phi tuyến.
+Với mỗi tầng ẩn thứ $l$, đầu ra của đơn tầng ẩn đó có thể được viết dưới dạng toán học là $\displaystyle \mathbf{a}^{(l)} = f^{(l)}\left(\mathbf{z}^{(l)}\right) = f^{(l)}\left(\mathbf{W}^{(l)}\mathbf{a}^{(l-1)} + \mathbf{b}^{(l)}\right)$.
+Thời khởi điểm những mạng sâu, hai hàm được sử dụng phổ biến là Sigmoi và Tanh.
+Một thời gian sau, một trong những bước đột phá về việc sử dụng hàm kích hoạt được Hinton và các cộng sự của mình giới thiệu đó là hàm ReLU (Rectified Linear Unit) - một hàm được sử dụng rộng rãi cho tới tận bây giờ sau 9 năm ra mắt.
+Hàm ReLU đã khắc phục một vài yếu điểm của những hàm Sigmoid hoặc Tanh, nhưng cũng không phải là không có nhược điểm.
+Một trong những nhược điểm được biết đến nhiều nhất đó là chết ReLU, khi ép những giá trị đầu vào âm thành giá trị 0.
+Nhiều năm sau, rất nhiều những hàm kích hoạt khác đã được đề xuất để có thể cải thiện cũng như chỉ ra những hạn chế của hàm ReLU, có thể kể đến là Leaky ReLU, ELU, SELU, GELU.
+Hàm Swish, được định nghĩa $f(x) = x\text{Sigmoid}\left(\beta x\right)$, được đưa ra và đã chứng minh được sự mạnh mẽ của mình so với những họ hàm LU.
+\vspace{5pt}
+
+Trong bài tập lớn này, những hàm kích hoạt được nêu tên sẽ được giới thiệu, phân tích một vài điểm mạnh và yếu.
+Sau cùng, ta sẽ áp dụng những hàm trên trong một số kiến trúc cũng như trên những tập dữ liệu khác nhau, để có một cái nhìn khái quát về hiệu xuất của các hàm khi được dùng để kích hoạt các giá trị ở những tầng ẩn của một mạng học sâu.
+
+\section{Lý do nghiên cứu}\label{sec:lydonghiencuu}
+
+Việc lựa chọn một hàm kích hoạt phù hợp với từng kiến trúc, cơ sở phần cứng, không chỉ giúp cải thiện tốc độ huấn luyện cho mô hình, mà còn là hỗ trợ các thuật toán tối ưu tìm được cực tiểu tốt nhất.
+Lý do là vì các hàm kích hoạt khác nhau sinh ra các hàm mất mát (hàm mục tiêu) khác nhau dẫn đến việc tối ưu nó cũng khác nhau dù dùng chung một thuấn toán tối ưu với các thông số giống nhau.
+Vì thế, khảo sát và đánh giá những hàm kích hoạt khác nhau với những kiến trúc khác nhau là cần thiết.
+Từ đó có thể đưa ra những gạch đầu dòng tiêu chí quan trọng cho những người kỹ sư, nhà nghiên cứu chọn lựa cho mình những hàm kích hoạt phù hợp trong kiến trúc mô hình của họ.

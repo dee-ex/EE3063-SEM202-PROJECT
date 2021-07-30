@@ -1,0 +1,314 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[english]{babel}
+\usepackage[utf8]{vietnam}
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+%\usepackage{vntex}
+
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage{abstract}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{dirtytalk}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\graphicspath{ {figures/} }
+% Standard graphics package
+\usepackage{listings}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage[a4paper,left=2cm,right=2cm,top=1.8cm,bottom=2.8cm]{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{diagbox}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[bottom]{footmisc}
+\usepackage[unicode]{hyperref}
+% \usepackage{indentfirst}
+%\usepackage[labelformat=empty]{caption}
+
+%can file puenc.def trong thu muc goc de option [unicode] tao ra bookmark bang tieng Viet
+\hypersetup{urlcolor=blue, linkcolor=black, citecolor=green, colorlinks=true} 
+%\usepackage{pstcol} 								
+% PSTricks with the standard color package
+
+\newtheorem{theorem}{{\bf Theorem}}
+\newtheorem{property}{{\bf Property}}
+\newtheorem{proposition}{{\bf Proposition}}
+\newtheorem{corollary}[proposition]{{\bf Corollary}}
+\newtheorem{lemma}[proposition]{{\bf Lemma}}
+
+
+% \usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Trường Đại học Bách Khoa - Đại học Quốc gia TP.HCM}\\
+		\textbf{\bf \ttfamily Bộ môn Điều Khiển Tự Động}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn học kì 202 - 05/2021}
+\fancyfoot[R]{\scriptsize \ttfamily {\thepage /iv}}
+
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+\fancypagestyle{plain}{%
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Trường Đại học Bách Khoa - Đại học Quốc gia TP.HCM}\\
+		\textbf{\bf \ttfamily Bộ môn Điều Khiển Tự Động}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn học kì 202 - 07/2021}
+\fancyfoot[R]{\scriptsize \ttfamily {\thepage /iv}}
+
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}}
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+TRƯỜNG ĐẠI HỌC BÁCH KHOA - ĐẠI HỌC QUỐC GIA TP.HCM\\
+BỘ MÔN ĐIỀU KHIỂN TỰ ĐỘNG
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=5cm]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{l}{\textbf{{\Large BÀI TẬP LỚN HỌC KÌ 202}}}\\
+~~\\
+\hline
+\\
+\textbf{\Huge Giới thiệu và thực nghiệm so sánh}\\
+\textbf{\Huge một số hàm kích hoạt}\\
+\textbf{\Huge sử dụng trong các mạng học sâu}\\
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+
+\hspace{2cm} & GVHD: TS. Phạm Việt Cường & (pvcuong@hcmut.edu.vn)\\
+& Lớp: L01, & Nhóm: 17\\
+& Nhóm sinh viên thực hiện: & Nguyễn Thành Trung - 1814515\\
+& & Hoàng Đình Toản - 1814379\\
+& & Đào Minh Triết - 1814426\\
+\vspace{30pt}\\
+
+\end{tabular}
+\end{table}
+
+\begin{center}
+{\footnotesize Hồ Chí Minh, 07/2021}
+\end{center}
+\end{titlepage}
+
+
+%\thispagestyle{empty}
+\pagenumbering{roman}
+
+\renewcommand{\abstractnamefont}{\normalfont\Huge\bfseries}
+
+\renewcommand{\abstractname}{Lời cảm ơn}
+\begin{abstract}
+Chúng em - nhóm thực hiện bài tập lớn này muốn bày tỏ lòng biết ơn chân thành tới giáo viên hướng dẫn của nhóm trong môn học \textit{Trí tuệ nhân tạo trong điều khiển}, là thầy \textbf{TS. Phạm Việt Cường} - ``giảng viên bộ môn Điều Khiển Tự Động khoa Điện--Điện Tử'' đã trực tiếp và gián tiếp chỉ dạy những kiến thức cần thiết không chỉ về môn học, mà là còn những kinh nghiệm trong phương pháp học tập và nghiên cứu.
+Tuy thời gian được trực tiếp làm việc cùng thầy trên lớp cho môn này không được nhiều do ảnh hưởng từ dịch bệnh COVID-19.
+Nhưng đã từng có cơ hội được thầy dẫn dắt ở những môn học khác, nhóm chung em ai cũng dễ dàng nhận thấy được sự tâm huyết, sự nhiệt tình dành cho sinh viên không chỉ riêng gì khoa Điện mà còn cho các khoa khác về vấn đề học tập và làm việc.
+Dù rằng có thể thầy nghĩ thầy không hiền lành, hài hước hay cho điểm dễ như các giáo/giảng viên khác, nhưng nhóm chúng em đều đồng ý rằng cách làm việc của thầy hiện giờ rất phù hợp cho những sinh viên nào muốn học và quyết tâm học.
+Điều này thật sự là hết sức cần thiết cho sinh viên thời đại mới.
+Dẫu cho kết quả thống kê thầy nhận được không tương xứng với những gì thầy đóng góp, nhưng những điều đó không có nghĩa là cách thức giáo dục của thầy là không đúng đắn.
+Thật khó để tưởng tượng rằng nhóm 17 sẽ tiếp cận và xử lý đề tài bài tập lớn này như thế nào nếu không có những vốn liếng quý báu đó từ thầy.
+Mong thầy sẽ tiếp tục giữ được ngọn lửa này cho các lứa sinh viên kế cận, để duy trì truyền thống học tập đáng tự hào của trường Đại học Bách Khoa - Đại học Quốc gia Thành phố Hồ Chí Minh.
+\vspace{5pt}
+
+Chúng em xin chân thành cảm thầy.\vspace{20pt}\\
+
+\hfill
+\begin{tabular}{l@{}}
+\textit{Tp. Hồ Chí Minh, ngày \textbf{04} tháng \textbf{05} năm \textbf{2021}.}\vspace{10pt}\\
+\hspace{1.5cm}\textbf{Nhóm Sinh Viên Thực Hiện}\vspace{10pt}\\
+\hspace{2.3cm}Nguyễn Thành Trung\vspace{10pt}\\
+\hspace{2.3cm}Hoàng Đình Toản\vspace{10pt}\\
+\hspace{2.3cm}Đào Minh Triết
+\end{tabular} 
+\end{abstract}
+
+\renewcommand{\abstractname}{Tóm tắt nội dung bài tập lớn}
+\begin{abstract}
+Hàm kích hoạt có một vai trò thiết yếu trong những tầng của một mạng học sâu, ảnh hưởng đến việc huấn luyện cũng như hiệu quả của mô hình.
+Bài tập lớn này thực hiện áp dụng những hàm kích hoạt chính được giới thiệu và thực nghiệm là: Tanh, ReLU, Leaky ReLU, ELU, SELU, GELU và Swish trên nhiều kiến trúc mạng khác nhau tờ mạng nơ-ron đa tầng cổ điển đến những kiến trúc tích chập hiện đại gồm AlexNet, SimpleNet và VGG16.
+Các tập dữ liệu được sử dụng để đánh giá gồm tập MNIST, tập CIFAR-10 và tập CIFAR-100.
+Trong đó MNIST được thử nghiệm với mạng nơ-ron sâu và cả mạng tích chập đơn giản.
+Phần về CIFAR-10 và CIFAR-100 được huấn luyện bởi các kiến trúc tích chập hiện đại như đã đề cập.
+Kết quả thu được cho thấy hàm ELU duy trì được kết quả tốt đối với các mạng nơ-ron đa tầng khi ta tăng số tầng ẩn lên, điều này là không thể với hàm ReLU hay Leaky ReLU mặc dù với những mạng không sâu thì cho kết quả rất xuất sắc.
+Đối với những kiến trúc tích chập hiện đại, Leaky ReLU vượt trội với các hàm còn lại, kế đến là GELU.
+Ngoài ra, những kết quả còn cho thấy hàm Tanh là một hàm khá nhanh tìm thấy những điểm cực tiểu địa phương và mắc kẹt ở đó, điều này khiến cho hàm Tanh ở một số kiến trúc không thể học được.
+Một điều nữa là kỹ thuật alpha dropout không thực sự là một kỹ thuật tốt để áp dụng cho các hàm kích hoạt hiện giờ.
+Tất cả các quá trình thực nghiệm được tiến hành nhờ vào thư viện Keras trên nền môi trường Python của Google Colab sử dụng Tesla K80 GPU.
+Toàn bộ mã nguồn, những kết quả thực nghiệm được lưu trữ tại: \href{https://github.com/dee-ex/EE3063-SEM202-PROJECT}{https://github.com/dee-ex/EE3063-SEM202-PROJECT}
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\makeatletter
+     \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+     \renewcommand*\l@table{\@dottedtocline{1}{1em}{3.2em}}
+\makeatother
+
+% \thispagestyle{empty}
+\renewcommand{\listfigurename}{Danh sách hình}
+\listoffigures
+
+\newpage
+
+% \thispagestyle{empty}
+% \renewcommand{\listfigurename}{Danh sách hình minh hoạ}
+\listoftables
+
+% \newpage
+% \vspace*{\fill}
+% {\centering \textit{Trang này được cố ý để trống.}\par}
+% \vspace{\fill}
+
+\newpage
+
+\pagenumbering{arabic}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn học kì 202 - 05/2021}
+% \fancyfoot[R]{\scriptsize \ttfamily {\thepage /vi}}
+\fancyfoot[R]{\scriptsize \ttfamily {\thepage}/\pageref{LastPage}}
+
+\fancypagestyle{plain}{%
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn học kì 202 - 05/2021}
+% \fancyfoot[R]{\scriptsize \ttfamily {\thepage /vi}}
+\fancyfoot[R]{\scriptsize \ttfamily {\thepage}/\pageref{LastPage}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{chapters/relateworks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/theory}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/mnist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/cifar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/conclusion}
+
+\renewcommand{\bibname}{Tài liệu tham khảo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+
+\end{document}

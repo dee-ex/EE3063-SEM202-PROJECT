@@ -1,0 +1,23 @@
+\chapter{Tổng kết}\label{chap:tongket}
+
+Bài tập lớn này đã trình bày những kết quả sau khi thực nghiệm các hàm kích hoạt trên 3 tập dữ liệu MNIST, CIFAR-10 và CIFAR-100, từ những hàm xa xưa như Sigmoid và Tanh.
+Cho tới những hàm được đề xuất cách đây 10 năm đổ lại như ReLU, Leaky ReLU, ELU, SELU, GELU và hàm mới được đề xuất gần đây là Swish.
+Dưới nhiều điều kiện khác nhau, chẳng hạn như thêm nhiễu vào dữ liệu, áp dụng nhiều kiến trúc học sâu kiểm mạng nơ-ron sâu đơn thuần, đến những mạng tích chập đơn giản với các độ sâu khác nhau và các kiến trúc tích chập hiện đại.
+Khi thử nghiệm mạng nơ-ron sâu đơn thuần với số lượng tầng ẩn khác nhau thì nhận thấy rằng:
+Hàm Tanh là một trong những hàm hội tụ khá nhanh về hố sâu cực tiểu và có thể giữ vững được kết quả dù cho tăng độ sâu lên.
+Hàm RELU và Leaky cho kết quả xuất sắc, tuy nhiên khi số tầng ẩn tăng lên thì kế quả bị giảm xuống rất nhiều.
+Riêng Leaky thì có thể học với những mạng sâu hơn so với RELU, dù vậy tốc độ hội tụ với những mạng sâu là không ấn tượng.
+GELU và Swish có kết quả tương tự với RELU và Leaky tuy nhiên lại nổi trội hơn về tốc độ hội tụ.
+ELU là một hàm ổn định trong xuyên suốt các mô hình với các độ sâu khác nhau.
+Trong các mạng nơ-ron sâu cổ điển có nhiều tẩng ẩn (khoảng 7 tầng trở lên) nên cân nhắc việc sử dụng ELU thay cho RELU hoặc Leaky để có thể học một cách tốt nhất.
+Một điều nữa đã được chứng minh là việc sử dụng kỹ thuật alpha dropout thực sự không đem lại kết quả tốt trên tập MNIST, và chuẩn hoá kiểu Lecun cũng phần nào giảm đi khả năng học của các hàm kích hoạt hiện giờ.
+Về kết quả thực nghiệm sử dụng các kiến trúc mạng tích chập hiện đại khác nhau:
+Sử dụng hàm kích hoạt là Tanh sẽ không giúp mô hình có khả năng học tốt thậm chí là không học được.
+Các hàm RELU, SELU và Swish nhìn chung có khả năng học tốt với kết quả khá khả quan.
+Ấn tượng hơn một chút là hàm GELU khi cho kết quả tốt hơn nhóm hàm vừa đề cập.
+Nhưng tốt hơn cả chính là Leaky với sự vượt trội ở mọi chỉ số với những hàm được so sánh cùng.
+\vspace{5pt}
+
+Trong tương lai, cần có thêm những nghiên cứu để tối ưu hoá các các tham số $\alpha$ với những kiến trúc khác nhau cho những hàm đã và đang hoạt động tốt như Leaky và ELU hay thậm chí là SELU, để có thể cho một kết quả khả quan hơn kết quả hiện tại.
+Thêm vào đó, rõ ràng cách khởi tạo trọng số nếu không cẩn thận cũng làm giảm hiệu quả của các hàm kích hoạt.
+Do đó cũng cần có phải thực nghiệm những cách khởi tạo trọng số với các hàm để chọn cho mình cách khởi tạo tốt nhất.
